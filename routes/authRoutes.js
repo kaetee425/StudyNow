@@ -20,14 +20,15 @@ module.exports = app => {
 	});
 
 	app.get('/api/logout', (req, res) => {
-		res.logout();
+		req.logout();
 		res.redirect('/')
 	});
 
 	app.put('/api/users/', function(req, res) {
-		console.log(req.user)
-
-		User.findOneAndUpdate(req.user._id, function(err, user) {
+		console.log("put request working")
+		console.log("red.user.id", req.user._id)
+		User.findById(req.user._id, function(err, user) {
+			console.log("im finding")
 			if (err)
 				res.send(err);
 			console.log("this is req.body: ", req.body);
