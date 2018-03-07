@@ -1,0 +1,16 @@
+.footer {
+	text-align: center;
+}
+
+.social li {
+	list-style: none;
+	display: inline-block; 
+}
+
+hr {
+	width: 60%;
+}
+
+.social ul {
+	padding-left: 0;
+}

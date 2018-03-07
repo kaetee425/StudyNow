@@ -1,0 +1,9 @@
+
+.nav li {
+	display: inline-block;
+	margin: auto 10px;
+}
+
+.nav {
+	margin: auto;
+}
