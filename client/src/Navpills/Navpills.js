@@ -10,17 +10,18 @@ const Navpills = props =>
       <img src={feather} height="80" width="80" />
     </li>
 
-    <li role="presentation"
-      onClick={() => props.handlePageChange("Mapping")}
-      className={props.currentPage === "Mapping" ? "active" : ""}
-    >
-      <a>Mapping</a>
-    </li>
     <li
       onClick={() => props.handlePageChange("Locations")}
       className={props.currentPage === "Locations" ? "active" : ""}
     >
       <a>Locations</a>
+    </li>
+
+    <li role="presentation"
+      onClick={() => props.handlePageChange("Mapping")}
+      className={props.currentPage === "Mapping" ? "active" : ""}
+    >
+      <a>Mapping</a>
     </li>
     
     <li role="presentation"
