@@ -67,6 +67,8 @@ class  Locations extends Component {
 						<button onClick={this.handleFormSubmit}>Submit</button>
 					</form>
 			 	<div>Loading ...</div>
+
+			 	<Footer />
 			</div>
 			)
 		}
