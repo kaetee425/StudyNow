@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
 
-const Chat = () => 
+class Chat extends Component {
+	render() {
+		return (
+			<div>
+				<h1>Chat</h1>
 
-<div>
-	<h1>Chat</h1>
-
-	<Footer />
-</div>
-
+				<Footer />
+			</div>
+		)
+	}
+}
 export default Chat

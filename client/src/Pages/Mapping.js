@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
 
-const Mapping = () => 
+class Mapping extends Component {
+	render() {
+		return (
+			<div>
+				<h1>Mapping</h1>
 
-<div>
-	<h1>Mapping</h1>
-
-	<Footer />
-</div>
-
+				<Footer />
+			</div>
+		)
+	}
+}
 export default Mapping

@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
 
-const Locations = () => 
 
-<div>
-	<h1>Locations</h1>
+class  Locations extends Component {
+	render() {
+		return (
+			<div>
+				<h1>Locations</h1>
 
-	<Footer />
-</div>
+				<form>
+					<input type="text" placeholder="Search" /><br />
+					<button>Submit</button>
+				</form>
 
+				<Footer />
+			</div>
+		)
+	}
+}
 export default Locations

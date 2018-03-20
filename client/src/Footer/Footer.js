@@ -20,7 +20,7 @@ const Footer = () =>
 	<hr />
 
 	<h7>Got something to tell us?<span id="footerEmail"> katie@katie.com</span></h7><br />
-	<h8> &copy; 2018 SavVy Inc. All Rights Reserved</h8>
+	<h8> &copy; 2018 aHA Inc. All Rights Reserved</h8>
 
 </div>
 
