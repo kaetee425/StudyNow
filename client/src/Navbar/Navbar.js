@@ -25,7 +25,7 @@ const Navbar = () =>
 		       <li className="nav-item active">
 		        <Link to="/bio">Bio</Link>
 		      </li>
-		 
+
 		    </ul>
 
 		  </div>
