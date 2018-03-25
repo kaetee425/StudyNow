@@ -23,11 +23,16 @@ module.exports = function(passport) {
 
 			User.findOne({ googleId: profile.id })
 				.then((existingUser) => {
-					console.log('existing person: ', existingUser)
+					console.log('profile', profile.photos[0].value)
 					if (existingUser) {
 						done(null, existingUser)
 					} else {
-						new User({ googleId: profile.id })
+						new User({ 
+							googleId: profile.id,
+							name: profile.displayName,
+							email: profile.emails[0].value,
+							avatar: profile.photos[0].value
+						})
 							.save()
 							.then(user => done(null, user))
 					}
