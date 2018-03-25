@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+import { connect } from 'react-redux';
+import * as actions from './actions';
 
 import Login from './Login/Login'
 import Locations from './Pages/Locations'
@@ -10,6 +12,11 @@ import Bio from './Pages/Bio'
 import Navbar from './Navbar/Navbar'
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
+
   render() {
     return (
     <Router>
@@ -30,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, actions)(App);
