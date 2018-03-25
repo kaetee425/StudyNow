@@ -10,6 +10,7 @@ class Bio extends Component {
 	}
 
 	renderContent() {
+		const {auth} = this.props
 
 		if (!auth) {
 			return <div> loading... </div>
