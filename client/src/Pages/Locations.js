@@ -21,10 +21,6 @@ class  Locations extends Component {
 
 	}
 
-	// componentDidMount() {
-	// 	API.getBusiness()
-	// }
-
 	findOnChange = (event) => {
 		console.log(event.target.value)
 
@@ -46,32 +42,37 @@ class  Locations extends Component {
 			term: this.state.term,
 			location: this.state.location
 		}).then(res => {
-			this.setState({ 
-				businesses: res.data,
-				term: '',
-				location: ''
-			 })
+			this.setState({
+				businesses: res.data
+			})
+		})
+		  .catch(err => console.error(err))
+	}
+
+	renderContent() {
+		const {businesses} = this.state
+
+		if (!businesses) {
+			<div>loading...</div>
 		}
-		).catch(err => console.error(err))
+
+		return (
+		businesses.map(business => {
+			return(
+				<div key={business.id}>
+					<p>{business.name}</p>
+					<p>{business.display_phone}</p>
+					<p>{business.price}</p>
+					<p>{business.location.display_address}</p>
+					<p>{business.url}</p>
+				</div>
+			)
+		})
+		)
 	}
 
 	render() {
-		if(this.state.businesses.length === 0 ) {
-			return (
-			<div>
-					<h1>Locations</h1>
 
-					<form>
-						<input onChange={this.findOnChange} type="text" placeholder="Find: Cafe, Library, Chill Spot..." /><br />
-						<input onChange={this.locationOnChange} type="text" placeholder="Location: Current, SF, Redwood City..." /><br />
-						<button onClick={this.handleFormSubmit}>Submit</button>
-					</form>
-			 	<div>Loading ...</div>
-
-			 	<Footer />
-			</div>
-			)
-		}
 		return (
 			<div>
 				<h1>Locations</h1>
@@ -83,8 +84,7 @@ class  Locations extends Component {
 				</form>
 
 				<div className='load'>
-
-					{this.state.businesses}
+					{this.renderContent()}
 				</div>
 
 				<Footer />
