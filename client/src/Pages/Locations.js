@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
 import yelp from 'yelp-fusion';
-// import keys from '../config/keys';
 import API from '../utils/API'
+import yelplogo from './yelp.png'
 
+import './Locations.css'
+import Navbar from '../Navbar/Navbar'
 
 class  Locations extends Component {
 
@@ -59,12 +61,23 @@ class  Locations extends Component {
 		return (
 		businesses.map(business => {
 			return(
-				<div key={business.id}>
-					<p>{business.name}</p>
-					<p>{business.display_phone}</p>
-					<p>{business.price}</p>
-					<p>{business.location.display_address}</p>
-					<p>{business.url}</p>
+				<div className="container foodlist">
+					<div className="row">
+
+						<div className="col-md-4 foodimg">
+							<img src="http://lorempixel.com/output/nature-q-c-640-480-4.jpg" width="200px" height="200px" />
+						</div>
+
+						<div className="col-md-8 details">
+							<div key={business.id}>
+								<p className="bizname">{business.name}</p>
+								<p className="bizaddy">{business.location.display_address}</p>
+								<p className="bizphone">{business.display_phone}</p>
+								<p className="bizprice">{business.price}</p>
+								<a href="{business.url}"><img className="yelplogo" src={yelplogo} /></a>
+							</div>
+						</div>
+					</div>
 				</div>
 			)
 		})
@@ -74,12 +87,12 @@ class  Locations extends Component {
 	render() {
 
 		return (
-			<div>
-				<h1>Locations</h1>
-
+			<div>		
+				<Navbar />
+										
 				<form>
-					<input onChange={this.findOnChange} type="text" placeholder="Find: Cafe, Library, Chill Spot..." /><br />
-					<input onChange={this.locationOnChange} type="text" placeholder="Location: Current, SF, Redwood City..." /><br />
+					<input id="cafes" onChange={this.findOnChange} type="text" placeholder="Find: Cafe, Library, Chill Spot..." />
+					<input id="cafes" onChange={this.locationOnChange} type="text" placeholder="Location: Current, SF, Redwood City..." />
 					<button onClick={this.handleFormSubmit}>Submit</button>
 				</form>
 
@@ -92,4 +105,10 @@ class  Locations extends Component {
 		)
 	}
 }
+
+//function mapDispatchToProps(data) {
+	// return {
+		
+	// }
+// }
 export default Locations

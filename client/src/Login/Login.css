@@ -60,7 +60,7 @@
 .vid-info .acronym { display: none; }
 }
 
-input {
+#login {
   margin: 10px;
   width: 300px;
 }

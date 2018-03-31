@@ -18,11 +18,11 @@ class Login extends Component {
 
 				<div id="vidtop-content">
 					<div className="vid-info">
-						<h1>Sharing "A-Ha!" Moments</h1>
+						<h3>Put them specs on and bring forth all those "A-Ha!" moments</h3>
 						<form>
 
-							<input type="text" name="email" placeholder="email" /><br />
-							<input type="password" name="password" placeholder="password" /><br />
+							<input id="login" type="text" name="email" placeholder="email" /><br />
+							<input id="login" type="password" name="password" placeholder="password" /><br />
 							<button type="submit" value="submit">Submit</button>
 
 							<a href="/auth/google">Login with Google</a>

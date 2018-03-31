@@ -9,7 +9,7 @@ import Mapping from './Pages/Mapping'
 import Chat from './Pages/Chat'
 import Bio from './Pages/Bio'
 
-import Navbar from './Navbar/Navbar'
+// import Navbar from './Navbar/Navbar'
 
 class App extends Component {
   componentDidMount() {
@@ -24,10 +24,8 @@ class App extends Component {
       
         <Route exact path='/' component={Login} />
 
-        <Navbar />
-
-        <Route path='/locations' component={Locations} />          
         <Route path='/mapping' component={Mapping} />
+        <Route path='/locations' component={Locations} />          
         <Route path='/chat' component={Chat} />
         <Route path='/bio' component={Bio} />
         
