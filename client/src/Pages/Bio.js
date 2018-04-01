@@ -47,10 +47,10 @@ class Bio extends Component {
 
 						<h4>What are you looking to do here?</h4>
 						<form>
-							<input id="roleform" type="checkbox" name="role" />I want a mentor.<br />
-							<input id="roleform" type="checkbox" name="role" />I want people to study with. <br />
-							<input id="roleform" type="checkbox" name="role" />I want to mentor others.<br />
-							<input id="roleform" type="checkbox" name="role" />I want to start projects with others.<br />
+							<input id="roleform" type="checkbox" name="role" value="mentor"/>I want a mentor.<br />
+							<input id="roleform" type="checkbox" name="role" value="study"/>I want people to study with. <br />
+							<input id="roleform" type="checkbox" name="role" value="mentorship"/>I want to mentor others.<br />
+							<input id="roleform" type="checkbox" name="role" value="projects"/>I want to start projects with others.<br />
 						</form>
 					</div>
 				</div>
