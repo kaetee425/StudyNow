@@ -3,6 +3,8 @@ import Footer from '../Footer/Footer'
 import yelp from 'yelp-fusion';
 import API from '../utils/API'
 import yelplogo from './yelp.png'
+import {connect} from 'react-redux'
+import { fetchBizReview } from './../actions'
 
 import './Locations.css'
 import Navbar from '../Navbar/Navbar'
@@ -14,6 +16,7 @@ class  Locations extends Component {
 
 		this.state = {
 			businesses: [],
+			reviews: [],
 			term: '',
 			location: ''
 		}
@@ -29,6 +32,15 @@ class  Locations extends Component {
 		this.setState({
 			term: event.target.value
 		})
+	}
+
+	componentWillReceiveProps = (newProps) => {
+		console.log('newProps', newProps);
+		if (newProps.biz) {
+			this.setState({
+				reviews: newProps.biz
+			});
+		}
 	}
 
 	locationOnChange = (event) => {
@@ -51,6 +63,16 @@ class  Locations extends Component {
 		  .catch(err => console.error(err))
 	}
 
+	handleShowReview = (bizID) => {
+		// event.preventDefault()
+		
+		this.props.fetchBizReview(bizID);
+		this.props.biz;
+		// console.log(bizID)
+		console.log(this.props.biz)
+
+	}
+
 	renderContent() {
 		const {businesses} = this.state
 
@@ -60,16 +82,18 @@ class  Locations extends Component {
 
 		return (
 		businesses.map(business => {
+			console.log(business)
 			return(
-				<div className="container foodlist">
+				<div key={business.id} className="container foodlist">
 					<div className="row">
 
 						<div className="col-md-4 foodimg">
 							<img src="http://lorempixel.com/output/nature-q-c-640-480-4.jpg" width="200px" height="200px" />
+							<button onClick={()=> this.handleShowReview(business.id)}>Click for reviews</button>
 						</div>
 
 						<div className="col-md-8 details">
-							<div key={business.id}>
+							<div>
 								<p className="bizname">{business.name}</p>
 								<p className="bizaddy">{business.location.display_address}</p>
 								<p className="bizphone">{business.display_phone}</p>
@@ -106,9 +130,10 @@ class  Locations extends Component {
 	}
 }
 
-//function mapDispatchToProps(data) {
-	// return {
-		
-	// }
-// }
-export default Locations
+function mapStateToProps (state) {
+	console.log('state in mapStateToProps: ', state)
+	return {
+		biz: state.biz
+	}
+}
+export default connect(mapStateToProps, { fetchBizReview })(Locations)
