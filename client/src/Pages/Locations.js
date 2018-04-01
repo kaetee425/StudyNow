@@ -73,6 +73,24 @@ class  Locations extends Component {
 
 	}
 
+	renderReviewContent() {
+		const {reviews} = this.state
+
+		if (!reviews) {
+			<div>Be the first to write a review!</div>
+		}
+
+		return (
+			reviews.map(review => {
+				return(
+					<div key={review.id} className="reviews">
+						<p>{review.text}</p>
+					</div>	
+				)
+			})
+		)
+	}
+
 	renderContent() {
 		const {businesses} = this.state
 
@@ -98,6 +116,7 @@ class  Locations extends Component {
 								<p className="bizaddy">{business.location.display_address}</p>
 								<p className="bizphone">{business.display_phone}</p>
 								<p className="bizprice">{business.price}</p>
+								<div className="review">{this.renderReviewContent()}</div>
 								<a href="{business.url}"><img className="yelplogo" src={yelplogo} /></a>
 							</div>
 						</div>
