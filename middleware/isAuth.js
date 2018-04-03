@@ -5,5 +5,6 @@ module.exports = function isAuthenticated(req, res, next) {
 		return next()
 	}
 
-	return res.status(404).send({})
+	return res.status(401).send({})
+	// 401 = error for non authorized user
 }

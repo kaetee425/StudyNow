@@ -4,7 +4,7 @@ import yelp from 'yelp-fusion';
 import API from '../utils/API'
 import yelplogo from './yelp.png'
 import {connect} from 'react-redux'
-import { fetchBizReview } from './../actions'
+import { fetchBizReview, fetchBiz } from './../actions'
 
 import './Locations.css'
 import Navbar from '../Navbar/Navbar'
@@ -52,15 +52,21 @@ class  Locations extends Component {
 	handleFormSubmit = (event) => {
 		event.preventDefault()
 
-		API.getBusiness({
+		// this.props.biz;
+		this.props.fetchBiz({
 			term: this.state.term,
 			location: this.state.location
-		}).then(res => {
-			this.setState({
-				businesses: res.data
-			})
 		})
-		  .catch(err => console.error(err))
+
+		// API.getBusiness({
+		// 	term: this.state.term,
+		// 	location: this.state.location
+		// }).then(res => {
+		// 	this.setState({
+		// 		businesses: res.data
+		// 	})
+		// })
+		//   .catch(err => console.error(err))
 	}
 
 	handleShowReview = (bizID) => {
@@ -155,4 +161,4 @@ function mapStateToProps (state) {
 		biz: state.biz
 	}
 }
-export default connect(mapStateToProps, { fetchBizReview })(Locations)
+export default connect(mapStateToProps, { fetchBizReview, fetchBiz })(Locations)
