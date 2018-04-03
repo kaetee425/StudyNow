@@ -13,12 +13,10 @@ export const fetchBizReview = (bizID) => async dispatch => {
 	dispatch({ type: FETCH_BIZREVIEW, payload: res.data})
 }
 
-export const fetchBiz = (data) => async dispatch => {
-	console.log('data in index.js: ', data)
-	const res = await axios.get('/api/business', data: {
-		term: data.term,
-		location: data.location
-	})
+export const fetchBiz = (termLocation) => async dispatch => {
+	
+	const res = await axios.get('/api/business', {params: { term: termLocation.term, location: termLocation.location}})
 
-	dispatch({ type: FETCH_BIZ, paylod: res.data})
+	console.log(res.data)
+	dispatch({ type: FETCH_BIZ, payload: res.data})
 }

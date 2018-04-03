@@ -10,29 +10,29 @@ const apiKey = keys.yelpClientSecret;
 module.exports = app => {
 	
 	app.get("/api/business", (req, res) => {
-		console.log(req)
+		console.log(typeof req.query)
 
-		// const queryJSON = JSON.parse(req.query.q)
-
-		// const searchRequest = {
-		// 	term: queryJSON.term,
-		// 	location: queryJSON.location,
-		// 	limit: 5
-		// }
+		const queryJSON = req.query
+		
+		const searchRequest = {
+			term: queryJSON.term,
+			location: queryJSON.location,
+			limit: 5
+		}
 
 		const client = yelp.client(apiKey)
 
-		// client.search(searchRequest).then(response => {
-		// 	// console.log("response", response)
-		// 	// console.log("search term:", searchRequest.term)
+		client.search(searchRequest).then(response => {
+			// console.log("response", response)
+			// console.log("search term:", searchRequest.term)
 			
-		// 	const resultArr = response.jsonBody.businesses
+			const resultArr = response.jsonBody.businesses
 			
-		// 	console.log('result outside of the')
-		// 		res.send(resultArr)
-		// }).catch( e => {
-		// 	console.log(e)
-		// });
+			console.log('result outside of the')
+				res.send(resultArr)
+		}).catch( e => {
+			console.log(e)
+		});
 	});
 
 

@@ -38,7 +38,8 @@ class  Locations extends Component {
 		console.log('newProps', newProps);
 		if (newProps.biz) {
 			this.setState({
-				reviews: newProps.biz
+				reviews: newProps.biz,
+				businesses: newProps.biz
 			});
 		}
 	}
@@ -52,21 +53,13 @@ class  Locations extends Component {
 	handleFormSubmit = (event) => {
 		event.preventDefault()
 
+		console.log(event)
+
 		// this.props.biz;
 		this.props.fetchBiz({
 			term: this.state.term,
 			location: this.state.location
 		})
-
-		// API.getBusiness({
-		// 	term: this.state.term,
-		// 	location: this.state.location
-		// }).then(res => {
-		// 	this.setState({
-		// 		businesses: res.data
-		// 	})
-		// })
-		//   .catch(err => console.error(err))
 	}
 
 	handleShowReview = (bizID) => {
@@ -140,8 +133,8 @@ class  Locations extends Component {
 				<Navbar />
 										
 				<form>
-					<input id="cafes" onChange={this.findOnChange} type="text" placeholder="Find: Cafe, Library, Chill Spot..." />
-					<input id="cafes" onChange={this.locationOnChange} type="text" placeholder="Location: Current, SF, Redwood City..." />
+					<input name="term" id="cafes" onChange={this.findOnChange} type="text" placeholder="Find: Cafe, Library, Chill Spot..." />
+					<input name="location" id="cafes" onChange={this.locationOnChange} type="text" placeholder="Location: Current, SF, Redwood City..." />
 					<button onClick={this.handleFormSubmit}>Submit</button>
 				</form>
 
