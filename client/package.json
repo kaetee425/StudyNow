@@ -2,16 +2,18 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy":
-    {
-      "/auth/google": {
-        "target": "http://localhost:3010"
-      },
-      "/api/*": {
-        "target": "http://localhost:3010"
-      }
+  "proxy": {
+    "/auth/google": {
+      "target": "http://localhost:3010"
     },
+    "/api/*": {
+      "target": "http://localhost:3010"
+    }
+  },
   "dependencies": {
+    "cors": "^2.8.4",
+    "pusher": "^1.5.1",
+    "pusher-js": "^4.2.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"

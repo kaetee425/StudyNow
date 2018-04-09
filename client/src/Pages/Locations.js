@@ -67,6 +67,7 @@ class  Locations extends Component {
 		
 		this.props.fetchBizReview(bizID);
 		this.props.biz;
+		//this.props.review
 		// console.log(bizID)
 		console.log(this.props.biz)
 

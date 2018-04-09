@@ -4,6 +4,9 @@ const keys = require('./config/keys');
 const passport = require('passport');
 const cookieSession = require('cookie-session')
 
+const Pusher = require('pusher');
+const cors = require('cors');
+
 require('./models/oauth')
 require('./models/skillsSchema')
 require('./middleware/passport')(passport)
@@ -42,8 +45,29 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 
+// ===============Chat Server======================
+
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json())
+const pusher = new Pusher({
+	appId: 'APP_ID',
+	key: 'APP_KEY',
+	secret: 'APP_SECRET',
+	cluster: 'APP_CLUSTER',
+	encrypted: true
+});
+
 const PORT = process.env.PORT || 3010;
+
+// ===============Chat Server======================
+app.post('/message', (req, res) => {
+	const payload = req.body;
+	pusher.trigger('chat', 'message', payload);
+	res.send(payload)
+});
 
 app.listen(PORT, () => {
 	console.log("App is now listening to port: ", PORT)
 })
+
