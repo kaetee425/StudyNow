@@ -1,4 +1,4 @@
-gotimport axios from 'axios'
+import axios from 'axios'
 import { FETCH_USER, FETCH_BIZREVIEW, FETCH_BIZ } from './types'
 
 export const fetchUser = () => async dispatch => {
