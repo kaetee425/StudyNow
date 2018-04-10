@@ -1,4 +1,4 @@
-const axios = require("axios");
+// const axios = require("axios");
 // const Yelp = require('yelpv3')
 // package has built in search aka built-in axios(request)
 const yelp = require('yelp-fusion');
