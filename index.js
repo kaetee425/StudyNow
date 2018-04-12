@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const passport = require('passport');
 const cookieSession = require('cookie-session')
+const bodyParser = require('body-parser')
 
 const Pusher = require('pusher');
 const cors = require('cors');
