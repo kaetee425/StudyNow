@@ -1,4 +1,4 @@
-tonyimport axios from 'axios'
+import axios from 'axios'
 import { FETCH_USER, FETCH_BIZREVIEW, FETCH_BIZ } from './types'
 
 export const fetchUser = () => async dispatch => {
@@ -19,4 +19,4 @@ export const fetchBiz = (termLocation) => async dispatch => {
 
 	console.log(res.data)
 	dispatch({ type: FETCH_BIZ, payload: res.data})
-}tony
+}
