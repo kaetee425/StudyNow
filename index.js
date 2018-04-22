@@ -20,9 +20,9 @@ const MONGODB_URI = keys.mongoURI || 'mongodb://localhost/StudyNow'
 mongoose.Promise = Promise;
 mongoose.connect(keys.mongoURI)
 
-app.get('/', (req, res) => {
-	res.send({ message: "Hello"})
-})
+// app.get('/', (req, res) => {
+// 	res.send({ message: "Hello"})
+// })
 
 //passport
 app.use(
