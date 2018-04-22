@@ -34,7 +34,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 require('./routes/authRoutes')(app)
-require('./routes/apiRoutes')(app)
 require('./routes/skillsRoutes')(app)
 
 if (process.env.NODE_ENV === 'production') {
