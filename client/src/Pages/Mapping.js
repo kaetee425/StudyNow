@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Maps from './Map/Map'
+// import Maps from './Map/Map'
+import Map2 from './Map/Map2'
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
 
@@ -9,7 +10,7 @@ class Mapping extends Component {
 		return (
 			<div>
 				<Navbar />
-				<Maps />
+				<Map2 />
 				<Footer />
 			</div>
 		)
