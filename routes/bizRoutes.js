@@ -1,4 +1,4 @@
-const axios = require ("axios")
+// const axios = require ("axios")
 const bodyParser = require('body-parser')
 const keys = require('../config/keys')
 const Yelp = require('yelp-fusion')
@@ -48,5 +48,21 @@ const Yelp = require('yelp-fusion')
 
 
 module.exports = app => {
+	app.get('/api/businesses', (req, res) => {
+		const apiKey = keys.yelpClientSecret
 
+		const searchRequest = {
+			term: 'Starbucks',
+			location: 'San Mateo, CA'
+		};
+
+		const client = Yelp.client(apiKey);
+
+		client.search(searchRequest).then( response => {
+			console.log("response:" , response.jsonBody.businesses)
+			res.send(response.jsonBody.businesses)
+		}).catch ( err => {
+			console.error (err)
+		})
+	})
 }
