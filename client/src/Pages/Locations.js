@@ -29,7 +29,8 @@ class  Locations extends Component {
 function mapStateToProps (state) {
 	console.log('state in mapStateToProps: ', state)
 	return {
-		biz: state.biz
+		biz: state.biz,
+		bizReview: state.bizReview
 	}
 }
 export default connect(mapStateToProps, { fetchBizReview, fetchBiz })(Locations)
