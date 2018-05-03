@@ -47,19 +47,50 @@ class  Locations extends Component {
 		})
 	}
 
-	//reviews 
+	componentWillReceiveProps = (newProps) => {
+		//reviews
+		//second batch of receiving props only if the initial component props changes
+		console.log("newProps", newProps)
 
-	// componentWillReceiveProps = (newProps) => {
-	// 	//reviews
-	// 	//second batch of receiving props only if the initial component props changes
-	// 	console.log("newProps", newProps)
+		if (newProps.bizReviews) {
+			this.setState({
+				bizReviews:newProps.bizReviews
+			})
+		}
+		
+		if (newProps.biz) {
+			this.setState({
+				businesses:newProps.biz
+			})
+		}
+	}
 
-	// 	if (newProps.bizReviews) {
-	// 		this.setstate({
-	// 			bizReviews:newProps.bizReviews
-	// 		})
-	// 	}
-	// }
+	renderContent() {
+		const {businesses} = this.state
+
+		if (!businesses) {
+			<div>loading...</div>
+		}
+
+		return (
+			businesses.map(business => {
+				console.log("business:", business)
+
+				return(
+
+					<div key={business.id} className="constainer foodlist">
+						<div>
+							<p className="bizname">{business.name}</p>
+							<p className="bizaddy">{business.location.display_address}</p>
+							<p className="biznum">{business.display_phone}</p>
+							<p className="bizprice">{business.price}</p>
+							<p className="bizrate">{business.rating}</p>
+						</div>
+					</div>
+				)
+			})
+		)
+	}
 
 
 	render() {
@@ -73,6 +104,10 @@ class  Locations extends Component {
 					<input name="location" id="cafes" onChange={this.locationOnChange} type="text" placeholder="Location: Current, SF, Redwood City..." />
 					<button onClick={this.handleFormSubmit}>Submit</button>
 				</form>
+
+				<div className="load">
+					{this.renderContent()}
+				</div>
 
 				<Footer />
 			</div>

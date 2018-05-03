@@ -56,7 +56,8 @@ module.exports = app => {
 
 		const searchRequest = {
 			term: queryJSON.term,
-			location: queryJSON.location
+			location: queryJSON.location,
+			limit: 5
 		};
 
 		const client = Yelp.client(apiKey);
