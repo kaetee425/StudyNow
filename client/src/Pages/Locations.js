@@ -8,6 +8,60 @@ import Navbar from '../Navbar/Navbar'
 
 class  Locations extends Component {
 
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			businesses: [],
+			reviews: [],
+			term: '',
+			location: ''
+		}
+
+		this.findOnChange = this.findOnChange.bind(this)
+		this.locationOnChange = this.locationOnChange.bind(this)
+	}
+
+	findOnChange = (event) => {
+		console.log(event.target.value)
+
+		this.setState({
+			term: event.target.value
+		})
+	}
+
+	locationOnChange = (event) => {
+		console.log(event.target.value)
+
+		this.setState({
+			location: event.target.value
+		})
+	}
+
+	handleFormSubmit = (event) => {
+		event.preventDefault()
+
+		this.props.fetchBiz({
+			term: this.state.term,
+			location: this.state.location
+		})
+	}
+
+	//reviews 
+
+	// componentWillReceiveProps = (newProps) => {
+	// 	//reviews
+	// 	//second batch of receiving props only if the initial component props changes
+	// 	console.log("newProps", newProps)
+
+	// 	if (newProps.bizReviews) {
+	// 		this.setstate({
+	// 			bizReviews:newProps.bizReviews
+	// 		})
+	// 	}
+	// }
+
+
 	render() {
 
 		return (

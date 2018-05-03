@@ -49,12 +49,14 @@ const Yelp = require('yelp-fusion')
 
 module.exports = app => {
 	const apiKey = keys.yelpClientSecret
-	
+
 	app.get('/api/businesses', (req, res) => {
 
+		const queryJSON = req.query
+
 		const searchRequest = {
-			term: 'Starbucks',
-			location: 'San Mateo, CA'
+			term: queryJSON.term,
+			location: queryJSON.location
 		};
 
 		const client = Yelp.client(apiKey);
