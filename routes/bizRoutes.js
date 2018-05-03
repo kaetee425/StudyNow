@@ -1,29 +1,29 @@
 const axios = require ("axios")
 const bodyParser = require('body-parser')
 const keys = require('../config/keys')
-const Yelp = require('yelp')
+const Yelp = require('yelp-fusion')
 
-module.exports = app => {
+// module.exports = app => {
 
-	app.get('/api/business', (req, res) => {
-		console.log("this is running")
-		// axios.get("https://api.yelp.com/v3/businesses/search")
-		// 	.then(response => {
-		// 		console.log("yelp search: ", response)
-		// 	}).catch(err => console.error(err))
+// 	app.get('/api/business', (req, res) => {
+// 		console.log("this is running")
+// 		// axios.get("https://api.yelp.com/v3/businesses/search")
+// 		// 	.then(response => {
+// 		// 		console.log("yelp search: ", response)
+// 		// 	}).catch(err => console.error(err))
 	
-		const url = "https://api.yelp.com/v3/businesses/search"
+// 		const url = "https://api.yelp.com/v3/businesses/search"
 
-		const options = {
-			method: 'GET',
-			headers: {app_id: keys.yelpClientID, app_secret: keys.yelpClientSecrete},
-			url: url
-		};
+// 		const options = {
+// 			method: 'GET',
+// 			headers: {app_id: keys.yelpClientID, app_secret: keys.yelpClientSecrete},
+// 			url: url
+// 		};
 
-		axios(options)
-	})
+// 		axios(options)
+// 	})
 
-}
+// }
 
 //Authentication: Bearer <API_KEY> <-- from yelp itself
 
@@ -45,3 +45,8 @@ module.exports = app => {
 // 	"token_type": "Bearer"
 // }
 
+
+
+module.exports = app => {
+
+}
