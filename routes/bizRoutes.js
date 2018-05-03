@@ -48,8 +48,9 @@ const Yelp = require('yelp-fusion')
 
 
 module.exports = app => {
+	const apiKey = keys.yelpClientSecret
+	
 	app.get('/api/businesses', (req, res) => {
-		const apiKey = keys.yelpClientSecret
 
 		const searchRequest = {
 			term: 'Starbucks',
@@ -63,6 +64,19 @@ module.exports = app => {
 			res.send(response.jsonBody.businesses)
 		}).catch ( err => {
 			console.error (err)
+		})
+	});
+
+	app.get("/api/businesses/:bizID/review", (req, res) => {
+		const bizID = req.params.bizID
+
+		const client = Yelp.client(apiKey)
+
+		client.reviews(bizID).then(response => {
+			const bizReview = response.jsonBody.reviews
+				res.send(bizReview)
+		}).catch( err => {
+			console.error(err)
 		})
 	})
 }
