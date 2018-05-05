@@ -82,13 +82,14 @@ class  Locations extends Component {
 
 				return(
 
-					<div key={business.id} className="constainer foodlist">
+					<div key={business.id} className="constainer bizlist">
 						<div>
 							<p className="bizname">{business.name}</p>
+							<p className="bizrate">{business.rating}</p>						
 							<p className="bizaddy">{business.location.display_address}</p>
 							<p className="biznum">{business.display_phone}</p>
-							<p className="bizprice">{business.price}</p>
-							<p className="bizrate">{business.rating}</p>
+							<p className="bizprice">{business.price}</p>	
+							<p className="bizhours">Opens until ...</p>
 						</div>
 					</div>
 				)

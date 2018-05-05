@@ -7,3 +7,13 @@ input {
 	margin: 15px;
 	width: 35%;
 }
+
+.load {
+	margin: auto 15%;
+}
+
+.bizlist {
+	border: 10px black solid;
+	padding: 20px;
+	margin: 10px auto;
+}
