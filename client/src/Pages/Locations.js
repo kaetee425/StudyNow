@@ -22,6 +22,8 @@ class  Locations extends Component {
 		this.locationOnChange = this.locationOnChange.bind(this)
 	}
 
+	//input form setup
+
 	findOnChange = (event) => {
 		console.log(event.target.value)
 
@@ -47,6 +49,7 @@ class  Locations extends Component {
 		})
 	}
 
+	// additional prop input for reviews + Biz after original page load 
 	componentWillReceiveProps = (newProps) => {
 		//reviews
 		//second batch of receiving props only if the initial component props changes
@@ -65,6 +68,7 @@ class  Locations extends Component {
 		}
 	}
 
+	//yelp business content load section
 	renderContent() {
 		const {businesses} = this.state
 
@@ -92,6 +96,14 @@ class  Locations extends Component {
 		)
 	}
 
+	//business Reviews 
+
+	// handleShowReview = (bizID) => {
+	// 	this.props.fetchBizReview(bizID);
+	// 	this.props.biz
+
+	// 	console.log(this.props.biz)
+	// }
 
 	render() {
 
