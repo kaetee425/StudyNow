@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
 import {connect} from 'react-redux'
 import { fetchBizReview, fetchBiz } from './../actions'
+import yelplogo from './yelp.png'
 
 import './Locations.css'
 import Navbar from '../Navbar/Navbar'
@@ -57,7 +58,7 @@ class  Locations extends Component {
 
 		if (newProps.bizReviews) {
 			this.setState({
-				bizReviews:newProps.bizReviews
+				reviews:newProps.bizReviews
 			})
 		}
 		
@@ -66,6 +67,39 @@ class  Locations extends Component {
 				businesses:newProps.biz
 			})
 		}
+
+		console.log(this.state.reviews)
+	}
+
+	// business Reviews 
+
+	handleShowReview = (bizID) => {
+
+		this.props.fetchBizReview(bizID)
+		this.props.biz
+
+		// console.log(this.props.biz)
+	}
+
+	renderReviewContent() {
+		const {reviews} = this.state
+
+		console.log(reviews)
+
+		if (!reviews) {
+			<div> You are awesome! Be the first to write a review!</div>
+		}
+
+		return (
+			reviews.map(review => {
+				console.log("Reviews: ", review)
+				return (
+					<div key={review.id} className="reviews">
+						<p>{review.text}</p>
+					</div>
+				)
+			})
+		)
 	}
 
 	//yelp business content load section
@@ -78,11 +112,16 @@ class  Locations extends Component {
 
 		return (
 			businesses.map(business => {
-				console.log("business:", business)
+				// console.log("business:", business)
 
 				return(
 
 					<div key={business.id} className="constainer bizlist">
+
+						<div className="bizimg">
+							<img />
+							<button onClick={() => this.handleShowReview(business.id)}> Click for Reviews</button>
+						</div>
 						<div>
 							<p className="bizname">{business.name}</p>
 							<p className="bizrate">{business.rating}</p>						
@@ -90,6 +129,9 @@ class  Locations extends Component {
 							<p className="biznum">{business.display_phone}</p>
 							<p className="bizprice">{business.price}</p>	
 							<p className="bizhours">Opens until ...</p>
+							<div>{this.renderReviewContent()}</div>
+
+							<a href="{business.url}"><img className="yelplogo" src={yelplogo} /></a>
 						</div>
 					</div>
 				)
@@ -97,14 +139,7 @@ class  Locations extends Component {
 		)
 	}
 
-	//business Reviews 
-
-	// handleShowReview = (bizID) => {
-	// 	this.props.fetchBizReview(bizID);
-	// 	this.props.biz
-
-	// 	console.log(this.props.biz)
-	// }
+	
 
 	render() {
 
