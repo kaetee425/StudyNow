@@ -7,13 +7,12 @@ import ChatBox from './ChatBox.js'
 class ChatComp extends Component {
 
 	constructor(props) {
-		super(props) {
+		super(props);
 			this.state = {
-				text = '',
-				username = '',
+				text: '',
+				username: '',
 				chats: []
 			}
-		};
 	}
 
 	componentDidMount() {
@@ -65,5 +64,7 @@ class ChatComp extends Component {
 		)
 	}
 }
+
+export default ChatComp
 
 //parent component of the chat
