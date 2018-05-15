@@ -1,4 +1,8 @@
 .greetings {
-	margin-top: 90px;
-	text-align: center;
+	padding-left: 20px
+}
+
+.chatbox {
+	width: 100%;
+	/*text-align: center;*/
 }

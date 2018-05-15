@@ -49,7 +49,7 @@ class ChatComp extends Component {
 
 			<div className="ChatComp">
 				<header className="ChatComp-header">
-					<h1 className="ChatComp-title">Welcome to React-Pusher Chat</h1>
+					<h1 className="ChatComp-title">Chat History</h1>
 				</header>
 
 				<section>
